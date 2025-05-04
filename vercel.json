@@ -1,0 +1,9 @@
+
+{
+  "routes": [
+    { "src": "/privacy-policy", "dest": "/index.html" },
+    { "src": "/terms-of-service", "dest": "/index.html" },
+    { "src": "/cookie-policy", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
