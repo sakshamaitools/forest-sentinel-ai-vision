@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="bg-forest-800 text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <TreeDeciduous className="h-7 w-7 text-forest-300" />
@@ -47,19 +47,10 @@ const Footer = () => {
             <h4 className="text-lg font-bold mb-4">Company</h4>
             <ul className="space-y-2">
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Team</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-bold mb-4">Resources</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Case Studies</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Research</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Partners</a></li>
+              <li><a href="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+              <li><a href="/cookie-policy" className="text-gray-300 hover:text-white transition-colors">Cookie Policy</a></li>
             </ul>
           </div>
         </div>
@@ -68,9 +59,9 @@ const Footer = () => {
           <p className="text-gray-400">&copy; {currentYear} Vanraksh AI Solutions. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
             <ul className="flex flex-wrap justify-center md:justify-end gap-6">
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a></li>
+              <li><a href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a></li>
+              <li><a href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a></li>
             </ul>
           </div>
         </div>
