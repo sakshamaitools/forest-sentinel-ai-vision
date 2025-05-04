@@ -22,7 +22,8 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Form submission logic - in a real implementation, this would send data to info@vanraksh.in
+    // For now we simulate the form submission
     setTimeout(() => {
       toast({
         title: "Message Sent",
@@ -122,7 +123,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800">Phone</h4>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 9888227848</p>
                   </div>
                 </div>
                 
@@ -132,7 +133,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800">Email</h4>
-                    <p className="text-gray-600">info@vanraksh.ai</p>
+                    <p className="text-gray-600">info@vanraksh.in</p>
                   </div>
                 </div>
                 
@@ -142,7 +143,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-800">Location</h4>
-                    <p className="text-gray-600">Green Tech Park, Bengaluru, Karnataka, India</p>
+                    <p className="text-gray-600">Mohali, Punjab, India</p>
                   </div>
                 </div>
               </div>

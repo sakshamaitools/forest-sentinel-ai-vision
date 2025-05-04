@@ -47,7 +47,7 @@ const CookiePolicy = () => {
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-forest-700">Contact Us</h2>
               <p className="text-gray-700">
-                If you have any questions about our Cookie Policy, please contact us at privacy@vanraksh.ai.
+                If you have any questions about our Cookie Policy, please contact us at info@vanraksh.in.
               </p>
             </section>
           </div>
