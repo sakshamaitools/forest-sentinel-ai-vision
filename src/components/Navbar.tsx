@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, TreeDeciduous } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,10 +31,10 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="/" className="flex items-center gap-2 text-forest-700">
+        <Link to="/" className="flex items-center gap-2 text-forest-700">
           <TreeDeciduous className="h-8 w-8 text-forest-600 animate-leaf-sway" />
           <span className="text-xl font-bold">Vanraksh AI</span>
-        </a>
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
