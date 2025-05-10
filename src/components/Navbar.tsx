@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, TreeDeciduous } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,11 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center gap-2 text-forest-700">
-          <TreeDeciduous className="h-8 w-8 text-forest-600 animate-leaf-sway" />
+          <img 
+            src="/lovable-uploads/46c255c3-62a7-427d-8b60-8cc17494bd70.png" 
+            alt="Vanraksh AI Logo" 
+            className="h-8 w-8"
+          />
           <span className="text-xl font-bold">Vanraksh AI</span>
         </Link>
         

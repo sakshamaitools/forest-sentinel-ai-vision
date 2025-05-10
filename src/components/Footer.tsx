@@ -1,7 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { TreeDeciduous, Github, Twitter, Linkedin, Facebook } from "lucide-react";
+import { Github, Twitter, Linkedin, Facebook } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,7 +12,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <TreeDeciduous className="h-7 w-7 text-forest-300" />
+              <img 
+                src="/lovable-uploads/46c255c3-62a7-427d-8b60-8cc17494bd70.png" 
+                alt="Vanraksh AI Logo" 
+                className="h-7 w-7"
+              />
               <span className="text-xl font-bold">Vanraksh AI</span>
             </div>
             <p className="text-gray-300 mb-4">
