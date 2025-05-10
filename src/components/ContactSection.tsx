@@ -1,38 +1,29 @@
-
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "Name must be at least 2 characters."
   }),
   email: z.string().email({
-    message: "Please enter a valid email address.",
+    message: "Please enter a valid email address."
   }),
   message: z.string().min(10, {
-    message: "Message must be at least 10 characters.",
-  }),
+    message: "Message must be at least 10 characters."
+  })
 });
-
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-  
+  const {
+    toast
+  } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,24 +32,21 @@ const ContactSection = () => {
       message: ""
     }
   });
-
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
+
     // Form submission logic - in a real implementation, this would send data to info@vanraksh.in
     // For now we simulate the form submission
     setTimeout(() => {
       toast({
         title: "Message Sent",
-        description: "We'll get back to you as soon as possible!",
+        description: "We'll get back to you as soon as possible!"
       });
       form.reset();
       setIsSubmitting(false);
     }, 1500);
   };
-
-  return (
-    <section id="contact" className="py-20 bg-gray-50">
+  return <section id="contact" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-4">
@@ -75,64 +63,34 @@ const ContactSection = () => {
           <div className="bg-white rounded-lg shadow-md p-8">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
+                <FormField control={form.control} name="name" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="block text-gray-700 text-sm font-bold mb-2">Name</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Your Name" 
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                          {...field} 
-                        />
+                        <Input placeholder="Your Name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
+                    </FormItem>} />
+                <FormField control={form.control} name="email" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="block text-gray-700 text-sm font-bold mb-2">Email</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Your Email" 
-                          type="email" 
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                          {...field} 
-                        />
+                        <Input placeholder="Your Email" type="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
+                    </FormItem>} />
+                <FormField control={form.control} name="message" render={({
+                field
+              }) => <FormItem>
                       <FormLabel className="block text-gray-700 text-sm font-bold mb-2">Message</FormLabel>
                       <FormControl>
-                        <Textarea 
-                          placeholder="Your Message" 
-                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                          rows={4}
-                          {...field} 
-                        />
+                        <Textarea placeholder="Your Message" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows={4} {...field} />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button
-                  type="submit"
-                  className="w-full bg-forest-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  disabled={isSubmitting}
-                >
+                    </FormItem>} />
+                <Button type="submit" className="w-full bg-forest-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" disabled={isSubmitting}>
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
@@ -156,7 +114,7 @@ const ContactSection = () => {
                 <Phone className="h-6 w-6 text-forest-500" />
                 <div>
                   <h4 className="font-bold text-gray-800">Phone</h4>
-                  <p className="text-gray-600">+91 98729851403</p>
+                  <p className="text-gray-600">+91 9729851403</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
@@ -172,8 +130,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
