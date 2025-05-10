@@ -1,22 +1,14 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { Github, Twitter, Linkedin, Facebook } from "lucide-react";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-forest-800 text-white py-12">
+  return <footer className="bg-forest-800 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <img 
-                src="/lovable-uploads/05799120-a191-457e-ae50-ab9fd4110976.png" 
-                alt="Vanraksh AI Logo" 
-                className="h-7 w-7"
-              />
+              <img src="/lovable-uploads/05799120-a191-457e-ae50-ab9fd4110976.png" alt="Vanraksh AI Logo" className="h-7 w-7" />
               <span className="text-xl font-bold">Vanraksh AI</span>
             </div>
             <p className="text-gray-300 mb-4">
@@ -53,9 +45,9 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-              <li><Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link to="/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Cookie Policy</Link></li>
+              
+              
+              
             </ul>
           </div>
         </div>
@@ -71,8 +63,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
