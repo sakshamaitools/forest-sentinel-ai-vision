@@ -13,7 +13,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img 
-                src="/lovable-uploads/46c255c3-62a7-427d-8b60-8cc17494bd70.png" 
+                src="/lovable-uploads/05799120-a191-457e-ae50-ab9fd4110976.png" 
                 alt="Vanraksh AI Logo" 
                 className="h-7 w-7"
               />
