@@ -1,9 +1,19 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const TermsOfService = () => {
+  useEffect(() => {
+    // Set the document title when component mounts
+    document.title = "Terms of Service | Vanraksh AI";
+    
+    // Reset title when component unmounts
+    return () => {
+      document.title = "Vanraksh AI";
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

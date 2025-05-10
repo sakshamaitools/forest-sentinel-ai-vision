@@ -49,9 +49,9 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-              <li><Link to="/privacy-policy" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="text-gray-300 hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link to="/cookie-policy" className="text-gray-300 hover:text-white transition-colors">Cookie Policy</Link></li>
+              <li><Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Terms of Service</Link></li>
+              <li><Link to="/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>
@@ -60,9 +60,9 @@ const Footer = () => {
           <p className="text-gray-400">&copy; {currentYear} Vanraksh AI Solutions. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
             <ul className="flex flex-wrap justify-center md:justify-end gap-6">
-              <li><Link to="/privacy-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</Link></li>
-              <li><Link to="/cookie-policy" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</Link></li>
+              <li><Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</Link></li>
+              <li><Link to="/cookie-policy" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>

@@ -1,10 +1,20 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Cookie } from "lucide-react";
 
 const CookiePolicy = () => {
+  useEffect(() => {
+    // Set the document title when component mounts
+    document.title = "Cookie Policy | Vanraksh AI";
+    
+    // Reset title when component unmounts
+    return () => {
+      document.title = "Vanraksh AI";
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
