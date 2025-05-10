@@ -25,7 +25,7 @@ const Footer = () => {
                 <Linkedin size={20} />
               </a>
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                <Github size={20} />
+                
               </a>
             </div>
           </div>
