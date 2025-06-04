@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -7,7 +8,8 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
+
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters."
@@ -19,11 +21,13 @@ const formSchema = z.object({
     message: "Message must be at least 10 characters."
   })
 });
+
 const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -32,6 +36,26 @@ const ContactSection = () => {
       message: ""
     }
   });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
 
@@ -46,7 +70,9 @@ const ContactSection = () => {
       setIsSubmitting(false);
     }, 1500);
   };
-  return <section id="contact" className="py-20 bg-gray-50">
+
+  return (
+    <section id="contact" className="py-20 bg-gray-50" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-forest-800 mb-4">
@@ -60,37 +86,69 @@ const ContactSection = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className={`bg-white rounded-lg shadow-md p-8 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+          }`}>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                <FormField control={form.control} name="name" render={({
-                field
-              }) => <FormItem>
+                <FormField 
+                  control={form.control} 
+                  name="name" 
+                  render={({ field }) => (
+                    <FormItem className="transition-all duration-500 hover:scale-105">
                       <FormLabel className="block text-gray-700 text-sm font-bold mb-2">Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" {...field} />
+                        <Input 
+                          placeholder="Your Name" 
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition-all duration-300 focus:scale-105" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>} />
-                <FormField control={form.control} name="email" render={({
-                field
-              }) => <FormItem>
+                    </FormItem>
+                  )} 
+                />
+                <FormField 
+                  control={form.control} 
+                  name="email" 
+                  render={({ field }) => (
+                    <FormItem className="transition-all duration-500 hover:scale-105">
                       <FormLabel className="block text-gray-700 text-sm font-bold mb-2">Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your Email" type="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" {...field} />
+                        <Input 
+                          placeholder="Your Email" 
+                          type="email" 
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition-all duration-300 focus:scale-105" 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>} />
-                <FormField control={form.control} name="message" render={({
-                field
-              }) => <FormItem>
+                    </FormItem>
+                  )} 
+                />
+                <FormField 
+                  control={form.control} 
+                  name="message" 
+                  render={({ field }) => (
+                    <FormItem className="transition-all duration-500 hover:scale-105">
                       <FormLabel className="block text-gray-700 text-sm font-bold mb-2">Message</FormLabel>
                       <FormControl>
-                        <Textarea placeholder="Your Message" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows={4} {...field} />
+                        <Textarea 
+                          placeholder="Your Message" 
+                          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline transition-all duration-300 focus:scale-105" 
+                          rows={4} 
+                          {...field} 
+                        />
                       </FormControl>
                       <FormMessage />
-                    </FormItem>} />
-                <Button type="submit" className="w-full bg-forest-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" disabled={isSubmitting}>
+                    </FormItem>
+                  )} 
+                />
+                <Button 
+                  type="submit" 
+                  className="w-full bg-forest-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-all duration-300 hover:scale-105 hover:shadow-lg ripple-effect" 
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
@@ -98,27 +156,29 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Information */}
-          <div className="bg-white rounded-lg shadow-md p-8">
+          <div className={`bg-white rounded-lg shadow-md p-8 transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+          }`}>
             <h3 className="text-xl font-bold text-gray-800 mb-6">
               Contact Information
             </h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <Mail className="h-6 w-6 text-forest-500" />
+              <div className="flex items-start space-x-3 transition-all duration-300 hover:scale-105 hover:bg-gray-50 p-2 rounded">
+                <Mail className="h-6 w-6 text-forest-500 pulse-glow" />
                 <div>
                   <h4 className="font-bold text-gray-800">Email</h4>
                   <p className="text-gray-600">info@vanraksh.in</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
-                <Phone className="h-6 w-6 text-forest-500" />
+              <div className="flex items-start space-x-3 transition-all duration-300 hover:scale-105 hover:bg-gray-50 p-2 rounded">
+                <Phone className="h-6 w-6 text-forest-500 pulse-glow" />
                 <div>
                   <h4 className="font-bold text-gray-800">Phone</h4>
                   <p className="text-gray-600">+91 9729851403</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-6 w-6 text-forest-500" />
+              <div className="flex items-start space-x-3 transition-all duration-300 hover:scale-105 hover:bg-gray-50 p-2 rounded">
+                <MapPin className="h-6 w-6 text-forest-500 pulse-glow" />
                 <div>
                   <h4 className="font-bold text-gray-800">Address</h4>
                   <p className="text-gray-600">
@@ -130,6 +190,8 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactSection;
